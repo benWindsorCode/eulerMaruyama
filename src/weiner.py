@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import List
+from scipy.interpolate import interp1d
 
 class Weiner:
     def __init__(self, steps: int, delta: float) -> None:
@@ -19,11 +20,17 @@ class Weiner:
 
         return self.simulation
 
-    def plot(self) -> None:
+    def plot(self, smooth_plot = True) -> None:
         if len(self.simulation) == 0:
             raise Exception("Can't plot with no data")
 
-        plt.scatter([ n*self.delta for n in range(self.steps)], self.simulation)
+        time = [ n*self.delta for n in range(self.steps) ]
+        smooth = interp1d(time, self.simulation)
+        if smooth_plot:
+            plt.plot(time, smooth(time))
+        else:
+            plt.scatter(time, self.simulation)
+    
         plt.show()
 
 
