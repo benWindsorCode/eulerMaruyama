@@ -29,7 +29,7 @@ class Weiner:
         if smooth_plot:
             plt.plot(time, smooth(time))
         else:
-            plt.scatter(time, self.simulation)
+            plt.scatter(time, self.simulation, s=0.5)
     
         plt.show()
 
