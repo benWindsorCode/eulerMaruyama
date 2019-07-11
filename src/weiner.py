@@ -33,5 +33,3 @@ class Weiner:
     
         plt.show()
 
-
-
