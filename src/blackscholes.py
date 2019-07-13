@@ -14,9 +14,8 @@ class BlackScholes:
         self.solver: EulerMaruyama = EulerMaruyama(self.a_func, self.b_func, self.steps, self.delta, self.initial)
         self.simulation: List[float] = []
 
-    def run(self) -> None:
-        self.simulation = self.solver.simulate()
-
-    def run(self, brownian: List[float]) -> None:
-        self.simulation = self.solver.simulate(brownian)
-        
+    def run(self, brownian: List[float] = None) -> None:
+        if brownian == None: 
+            self.simulation = self.solver.simulate()
+        else:
+            self.simulation = self.solver.simulate(brownian)
