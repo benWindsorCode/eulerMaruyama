@@ -16,7 +16,7 @@ class Weiner:
         current: float = 0
         for i in range(self.steps):
             self.simulation.append(current)
-            current = current + np.random.normal(self.mu, self.sigma)
+            current = current + np.random.normal(self.mu, self.sigma)*np.sqrt(self.delta)
 
         return self.simulation
 
