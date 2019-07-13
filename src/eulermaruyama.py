@@ -16,8 +16,10 @@ class EulerMaruyama:
     def simulate(self, brownian: List[float] = None) -> List[float]:
         self.simulation = []
         current = self.initial
-
-        for i in range(self.steps):
+        print(len(brownian))
+        print(self.steps)
+        for i in range(self.steps-1):
+            print(i)
             self.simulation.append(current)
             normal = np.random.normal(0,1)
             if (brownian == None):
