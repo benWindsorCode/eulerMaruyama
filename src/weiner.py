@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from typing import List
 from scipy.interpolate import interp1d
 
+
 class Weiner:
     def __init__(self, steps: int, delta: float) -> None:
         self.simulation: List[float] = []
